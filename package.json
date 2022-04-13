@@ -1,0 +1,13 @@
+{
+  "name": "fra-forestkids",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:openforis/fra-forestkids.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve"
+  },
+  "devDependencies": {
+    "serve": "^13.0.2"
+  }
+}
