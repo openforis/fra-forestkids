@@ -7,7 +7,7 @@
   "scripts": {
     "start": "serve"
   },
-  "devDependencies": {
+  "dependencies": {
     "serve": "^13.0.2"
   }
 }
