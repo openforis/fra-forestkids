@@ -104,6 +104,8 @@ footer > h4 {
   grid-template-columns: auto auto auto;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+
+  padding: 0 24px;
 }
 
 .footer__logos img {
@@ -126,16 +128,25 @@ footer > h4 {
   justify-self: right;
 }
 
+#eu-logo {
+  height: 87px;
+}
+#esa-logo-container {
+  width: 300px;
+}
 #esa-logo {
   height: 96px;
+  float: left;
+  margin-bottom: 24px;
 }
 
 #avoin-logo {
   height: 32px;
 }
 
- /* WebGL/Unity */
-#unity-container, #unity-container.unity-mobile {
+/* WebGL/Unity */
+#unity-container,
+#unity-container.unity-mobile {
   position: relative !important;
   height: 72vh !important;
 }
