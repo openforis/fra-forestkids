@@ -1,0 +1,141 @@
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  background: initial;
+  box-sizing: border-box;
+  color: #555;
+  color: rgb(85, 85, 85);
+  direction: ltr;
+  font-family: Open Sans, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 100vh;
+  line-height: 20px;
+  line-height: 20px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  overflow: auto;
+}
+
+#main {
+  height: 100%;
+}
+
+.app-header {
+  height: 64px;
+  padding: 0 20px;
+  border-bottom: 1px solid #dadada;
+  background: #fff;
+  color: #666;
+  padding: 8px;
+  display: grid;
+  align-items: center;
+  justify-items: unset;
+  grid-template-columns: calc(340px - 21px) 1px auto auto;
+  grid-row-gap: 8px;
+}
+
+.app-header__separator {
+  background-color: #555;
+  height: 32px;
+  width: 1px;
+}
+
+.app-header__global-fra {
+  font-size: 24px;
+  padding-left: 24px;
+  text-align: unset;
+}
+
+.app-header__menu {
+  display: flex;
+  justify-self: right;
+  align-items: center;
+}
+
+.app-header-link-home {
+  cursor: pointer;
+  position: unset;
+  margin-top: 4px;
+  right: unset;
+}
+.app-header-link-home {
+  position: absolute;
+  right: 16px;
+  color: #7f7f7f;
+  transition: all 0.2s;
+}
+.app-header__menu > * {
+  margin: 0 4px;
+  margin-top: 0px;
+}
+
+.app-header-link-home svg {
+  height: 22px;
+}
+
+video {
+  max-width: 99vw;
+  height: 90vh;
+  border: none;
+}
+
+footer {
+  margin: 24px;
+}
+
+footer > h4 {
+  text-align: left;
+}
+
+.footer__logos {
+  align-items: center;
+  justify-items: center;
+  grid-row-gap: 8px;
+
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.footer__logos img {
+  height: 48px;
+}
+
+.footer__logos img:first-child {
+  justify-self: left;
+}
+
+.footer__logos img:last-child {
+  justify-self: right;
+}
+
+.left {
+  justify-self: left;
+}
+
+.right {
+  justify-self: right;
+}
+
+#esa-logo {
+  height: 96px;
+}
+
+#avoin-logo {
+  height: 32px;
+}
+
+ /* WebGL/Unity */
+#unity-container, #unity-container.unity-mobile {
+  position: relative !important;
+  height: 72vh !important;
+}
