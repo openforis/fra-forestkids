@@ -26,6 +26,8 @@ body {
 
 #main {
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .app-header {
@@ -81,14 +83,9 @@ body {
   height: 22px;
 }
 
-video {
-  max-width: 99vw;
-  height: 90vh;
-  border: none;
-}
-
 footer {
-  margin: 24px;
+  margin: 0 24px;
+  height: 240px;
 }
 
 footer > h4 {
@@ -131,9 +128,11 @@ footer > h4 {
 #eu-logo {
   height: 87px;
 }
+
 #esa-logo-container {
   width: 300px;
 }
+
 #esa-logo {
   height: 96px;
   float: left;
@@ -141,12 +140,14 @@ footer > h4 {
 }
 
 #avoin-logo {
-  height: 32px;
+  height: 48px;
 }
 
 /* WebGL/Unity */
 #unity-container,
 #unity-container.unity-mobile {
   position: relative !important;
-  height: 72vh !important;
+  margin-bottom: 24px;
+  height: 60%;
+  flex-grow: 3;
 }
