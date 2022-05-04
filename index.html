@@ -1,0 +1,220 @@
+<html>
+  <head>
+    <title>FRA platform | ForestKids</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <link href="./assets/main.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="main">
+      <div class="app-header">
+        <img
+          alt="FAO"
+          class="app-header__fao-logo"
+          src="https://fra-data.fao.org/img/fao/FAOen.svg"
+        />
+        <div class="app-header__separator"></div>
+        <div class="app-header__global-fra">ForestKids</div>
+
+        <div class="app-header__menu">
+          <span
+            aria-current="page"
+            onclick="window.location.reload()"
+            class="app-header-link-home"
+          >
+            <svg
+              id="Home"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 42.789 35.773"
+            >
+              <path
+                id="Path_207"
+                data-name="Path 207"
+                d="M1802.371,100.83h-9.222l.036-11.215-9.36.054.026,11.161h-9.185V84.255l13.855-12.145,13.85,12.145Z"
+                transform="translate(-1767.102 -65.057)"
+                fill="currentColor"
+              ></path>
+              <path
+                id="Path_208"
+                data-name="Path 208"
+                d="M1659.947,6.649h-4.6L1676.73-12l.026,4.124Z"
+                transform="translate(-1655.348 12)"
+                fill="currentColor"
+              ></path>
+              <path
+                id="Path_209"
+                data-name="Path 209"
+                d="M2009.411,6.649h4.6L1992.6-12l.025,4.124Z"
+                transform="translate(-1971.223 12)"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+
+      <div id="unity-container" class="unity-desktop">
+        <canvas id="unity-canvas"></canvas>
+        <div id="overlay-clip" class="overlay">
+          <div id="overlay" class="overlay-layer"></div>
+        </div>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+        </div>
+        <div id="unity-footer">
+          <div id="unity-webgl-logo"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">FAO Game</div>
+        </div>
+        <div id="counter" class="counter">
+          <p id="loadingInfo" style="position: relative; top: 28px">loading</p>
+          <h1 id="progressC">0%</h1>
+          <div id="ProgressLineB" class="ProgressLineB"></div>
+          <div id="ProgressLine" class="ProgressLine"></div>
+        </div>
+      </div>
+      <div id="loadingBox">
+        <div class="vertical-centered-box">
+          <div class="content">
+            <div class="loader-circle"></div>
+            <div class="loader-line-mask">
+              <div class="loader-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/unity.loader.js";
+        var config = {
+          dataUrl: buildUrl + "/unity.data",
+          frameworkUrl: buildUrl + "/unity.framework.js",
+          codeUrl: buildUrl + "/unity.wasm",
+          streamingAssetsUrl: "StreamingAssets",
+          companyName: "Avoin",
+          productName: "FAO Game",
+          productVersion: "0.1",
+        };
+
+        var container = document.querySelector("#unity-container");
+        var canvas = document.querySelector("#unity-canvas");
+        var fullscreenButton = document.querySelector(
+          "#unity-fullscreen-button"
+        );
+        var loadingBar = document.querySelector("#unity-loading-bar");
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          container.className = "unity-mobile";
+          config.devicePixelRatio = 1;
+        } else {
+          container.className = "unity-mobile";
+        }
+        loadingBar.style.display = "block";
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+          createUnityInstance(canvas, config, (progress) => {
+            if (progress == 1) {
+              document.getElementById("ProgressLine").style.width =
+                200 * progress + "px";
+              document.getElementById("loadingInfo").innerHTML = "loading";
+              document.getElementById("progressC").innerHTML =
+                Math.floor(100 * progress) + "%";
+            } else {
+              document.getElementById("loadingInfo").innerHTML = "downloading";
+              document.getElementById("progressC").innerHTML =
+                Math.floor(100 * progress) + "%";
+              document.getElementById("ProgressLine").style.width =
+                200 * progress + "px";
+            }
+          })
+            .then((unityInstance) => {
+              $("#overlay")
+                .delay(350)
+                .animate({ "margin-left": "-=1700" }, "slow")
+                .fadeOut();
+              $("#overlay-clip")
+                .delay(350)
+                .animate({ opacity: 0 }, "slow")
+                .fadeOut();
+              $("#counter")
+                .delay(200)
+                .animate(
+                  { opacity: 0, "margin-top": "-=100" },
+                  150,
+                  function () {
+                    $(this).css("display", "none");
+                  }
+                );
+              $("#loadingBox")
+                .delay(200)
+                .animate(
+                  { "margin-top": "+=100", opacity: 0 },
+                  "200",
+                  function () {
+                    $(this).css("display", "none");
+                  }
+                );
+              loadingBar.style.display = "none";
+              fullscreenButton.onclick = () => {
+                unityInstance.SetFullscreen(1);
+              };
+            })
+            .catch((message) => {
+              alert(message);
+            });
+        };
+        document.body.appendChild(script);
+      </script>
+
+      <footer>
+        <h4>Partners</h4>
+
+        <div class="footer__logos">
+
+          
+          <div class="left">
+            <img id="eu-logo" alt="logo of partner: EU" src="./assets/EU flag.jpg" />
+          </div>
+
+
+          <div id="esa-logo-container">
+            <img
+              id="esa-logo"
+              alt="logo of partner: ESA"
+              src="./assets/ESA_logo_2020_Deep.png"
+            />
+          </div>
+
+
+          <div class="right">
+            <img id="avoin-logo" alt="logo of partner: Avoin" src="./assets/Avoin.png" />
+          </div>
+
+        </div>
+
+        <div class="footer__logos">
+          <div class="left">
+            <p>Funded by the European Union</p>
+          </div>
+          <div>
+            <p>With the support of the European Space Agency</p>
+          </div>
+          <div class="right">
+            <p>With the technical collaboration of Avoin Ry</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
