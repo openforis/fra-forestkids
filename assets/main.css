@@ -84,12 +84,22 @@ body {
 }
 
 footer {
-  margin: 0 24px;
+  padding-bottom: 24px;
   height: 240px;
+  width: 100%;
 }
 
 footer > h4 {
   text-align: left;
+  margin-left: 24px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #555;
+  border-bottom: 1px solid transparent;
+  padding: 1px 0;
+  transition: all 0.25s;
 }
 
 .footer__logos {
@@ -115,6 +125,34 @@ footer > h4 {
 
 .footer__logos img:last-child {
   justify-self: right;
+}
+
+.footer__links {
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto;
+  grid-column-gap: 16px;
+  border-top: 1px solid #dadada;
+  font-size: 11px;
+  border-top: 1px solid #dadada;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 24px;
+  padding-top: 12px;
+}
+
+footer .separator {
+  height: 8px;
+  width: 1px;
+  background-color: rgba(85, 85, 85, 0.7);
+  margin: 0 12px;
+}
+
+.copyright {
+  position: absolute;
+  right: 24;
 }
 
 .left {
