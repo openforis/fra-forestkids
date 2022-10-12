@@ -87,6 +87,12 @@ footer {
   padding-bottom: 24px;
   height: 240px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer > .center {
+  text-align: center;
 }
 
 footer > h4 {
