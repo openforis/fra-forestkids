@@ -53,7 +53,7 @@ body {
 .app-header__global-fra {
   font-size: 24px;
   padding-left: 24px;
-  text-align: unset;
+  text-align: left;
 }
 
 .app-header__menu {
