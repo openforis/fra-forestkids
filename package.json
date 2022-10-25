@@ -5,7 +5,8 @@
   "repository": "git@github.com:openforis/fra-forestkids.git",
   "license": "MIT",
   "scripts": {
-    "start": "serve"
+    "build": "cp -r index.html assets unity",
+    "start": "serve unity --config serve.json"
   },
   "dependencies": {
     "serve": "^13.0.2"
