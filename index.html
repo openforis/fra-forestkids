@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width,initial-scale=1,maximum-scale=1"
     />
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="https://forest-kids.s3.eu-north-1.amazonaws.com/TemplateData/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
@@ -103,13 +103,14 @@
           const el = document.getElementById('unity-container')
           el.innerHTML = 'Please access Forest Kids game from your laptop or desktop computer to play. This version is not intended to be used in mobile browsers. The game will be soon published as an app for both Android and iOS platforms.'
         } else {
-          var buildUrl = "Build";
+          var s3 = "https://forest-kids.s3.eu-north-1.amazonaws.com/";
+          var buildUrl = s3+"Build";
           var loaderUrl = buildUrl + "/unity.loader.js";
           var config = {
             dataUrl: buildUrl + "/unity.data.gz",
             frameworkUrl: buildUrl + "/unity.framework.js.gz",
             codeUrl: buildUrl + "/unity.wasm.gz",
-            streamingAssetsUrl: "StreamingAssets",
+            streamingAssetsUrl: s3+"StreamingAssets",
             companyName: "Avoin",
             productName: "Forest Kids",
             productVersion: "1.0",
