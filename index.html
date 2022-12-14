@@ -101,7 +101,10 @@
 
         if (isMobile(navigator.userAgent||navigator.vendor||window.opera)) {
           const el = document.getElementById('unity-container')
-          el.innerHTML = 'Please access Forest Kids game from your laptop or desktop computer to play. This version is not intended to be used in mobile browsers. The game will be soon published as an app for both Android and iOS platforms.'
+          el.innerHTML = `
+          Please access Forest Kids game from your laptop or desktop computer to play.<br />
+          This version is not intended to be used in mobile browsers. <br />
+          `
         } else {
           var s3 = "https://forest-kids.s3.eu-north-1.amazonaws.com/";
           var buildUrl = s3+"Build";
@@ -189,7 +192,10 @@
       </script>
 
       <footer>
-        <strong class="center">The game will be soon accessible on both Android and iOS platforms.</strong>
+        <p class="center">
+          The game is accessible on both <a href="https://play.google.com/store/apps/details?id=com.Avoin.ForestKids&amp;hl=en&amp;gl=US">Android</a> and
+          <a href="https://apps.apple.com/us/app/forest-kids/id6443543467">iOS</a> platforms.
+        </p>
         <h4>Partners</h4>
 
         <div class="footer__logos">
