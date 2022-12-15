@@ -40,7 +40,7 @@ body {
     display: grid;
     align-items: center;
     justify-items: unset;
-    grid-template-columns: calc(340px - 21px) 1px auto auto;
+    grid-template-columns: calc(340px - 21px) 1px auto 200px 100px;
     grid-row-gap: 8px;
 }
 
@@ -54,6 +54,14 @@ body {
     font-size: 24px;
     padding-left: 24px;
     text-align: left;
+}
+
+#app_header__store {
+    display: flex;
+}
+#app_header__store .store_ico {
+    height: 36px;
+    margin-right: 12px;
 }
 
 .app-header__menu {
@@ -126,6 +134,11 @@ footer a {
     grid-row-gap: 0px;
 
     padding: 0 24px;
+}
+
+#mobile_app_store_buttons .store_ico {
+    line-height: 36px;
+    height: 3rem;
 }
 
 .footer__logos img {
