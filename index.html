@@ -25,7 +25,10 @@
         />
         <div class="app-header__separator"></div>
         <div class="app-header__global-fra">Forest Kids - Biodiversity</div>
-
+        <div id="app_header__store">
+          <a href="https://play.google.com/store/apps/details?id=com.Avoin.ForestKids&amp;hl=en&amp;gl=US"><img class="store_ico" alt="play_store" src="assets/play_store.webp"></a>
+          <a href="https://apps.apple.com/us/app/forest-kids/id6443543467"><img class="store_ico" alt="app_store" src="assets/app_store.webp"></a>
+        </div>
         <div class="app-header__menu">
           <span
             aria-current="page"
@@ -100,10 +103,15 @@
         }
 
         if (isMobile(navigator.userAgent||navigator.vendor||window.opera)) {
+          document.getElementById('app_header__store').remove()
           const el = document.getElementById('unity-container')
           el.innerHTML = `
-          Please access Forest Kids game from your laptop or desktop computer to play.<br />
-          This version is not intended to be used in mobile browsers. <br />
+<div id="mobile_app_store_buttons">
+<p>Download Forest Kids video Game</p>
+   <a href="https://play.google.com/store/apps/details?id=com.Avoin.ForestKids&amp;hl=en&amp;gl=US"><img class="store_ico" alt="play_store" src="assets/play_store.webp"></a> <br />
+   <br />
+          <a href="https://apps.apple.com/us/app/forest-kids/id6443543467"><img class="store_ico" alt="app_store" src="assets/app_store.webp"></a>
+          </div>
           `
         } else {
           var s3 = "https://forest-kids.s3.eu-north-1.amazonaws.com/";
@@ -192,10 +200,6 @@
       </script>
 
       <footer>
-        <p class="center">
-          The game is accessible on both <a href="https://play.google.com/store/apps/details?id=com.Avoin.ForestKids&amp;hl=en&amp;gl=US">Android</a> and
-          <a href="https://apps.apple.com/us/app/forest-kids/id6443543467">iOS</a> platforms.
-        </p>
         <h4>Partners</h4>
 
         <div class="footer__logos">
