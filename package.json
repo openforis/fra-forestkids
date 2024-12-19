@@ -1,13 +1,14 @@
 {
   "name": "fra-forestkids",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/index.js",
   "repository": "git@github.com:openforis/fra-forestkids.git",
   "license": "MIT",
   "scripts": {
-    "start": "serve --config serve.json"
+    "start": "node server/index.js"
   },
   "dependencies": {
-    "serve": "^14.0.1"
+    "dotenv": "^16.4.5",
+    "express": "^4.17.1"
   }
 }
