@@ -127,7 +127,8 @@
           </div>
           `
         } else {
-          var s3 = "https://forest-kids.s3.eu-north-1.amazonaws.com/";
+          const beta = "Restoration+Test+Game/";
+          var s3 = "https://forest-kids.s3.eu-north-1.amazonaws.com/" + beta;
           var buildUrl = s3+"Build";
           var loaderUrl = buildUrl + "/unity.loader.js";
           var config = {
